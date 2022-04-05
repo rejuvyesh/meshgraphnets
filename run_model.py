@@ -58,13 +58,13 @@ device = torch.device('cuda')
 
 # train and evaluation configuration
 FLAGS = flags.FLAGS
-flags.DEFINE_enum('model', 'deform', ['cloth', 'deform'],
+flags.DEFINE_enum('model', 'cloth', ['cloth', 'deform'],
                   'Select model to run.')
 flags.DEFINE_enum('mode', 'all', ['train', 'eval', 'all'],
                   'Train model, or run evaluation, or run both.')
 flags.DEFINE_enum('rollout_split', 'valid', ['train', 'test', 'valid'],
                   'Dataset split to use for rollouts.')
-flags.DEFINE_string('dataset', 'deforming_plate', ['flag_simple', 'deforming_plate'])
+flags.DEFINE_string('dataset', 'flag_simple', ['flag_simple', 'deforming_plate'])
 
 flags.DEFINE_integer('epochs', 2, 'No. of training epochs')
 flags.DEFINE_integer('trajectories', 2, 'No. of training trajectories')
@@ -282,6 +282,7 @@ def pickle_load(path):
 '''
     Handles dataset preprocessing, model definition, training process definition and model training
 '''
+
 
 
 def learner(model, params, run_step_config):
